@@ -1,4 +1,8 @@
 <?php
+$USER = "guest";
+$PASSWORD = "password";
+$CANCEL_TEXT = 'Sorry, but I don\'t want bots to enter. Contact me at Github or otherwise for a password!';
+
 /*
  Easy PHP Upload - version 2.29
  A easy to use class for your (multiple) file uploads
@@ -387,8 +391,8 @@ function filter_words($wordArray, $rules) {
         $newArray = array();
         switch ($rule[0]) {
 
-            case 'Case insensitive' :
-                if ($rule[1]){
+            case 'Case_insensitive' :
+                if ($rule[1]) {
                     foreach ($wordArray as $word => $occurrences) {
                         if ($word === strtolower($word)) {
                             if (isset($wordArray[ucwords($word)])) {
@@ -398,12 +402,12 @@ function filter_words($wordArray, $rules) {
                             }
                         }
                     }
-                arsort($newArray);
-                $wordArray = $newArray;
+                    arsort($newArray);
+                    $wordArray = $newArray;
                 }
                 break;
 
-            case "higher than" :
+            case "higher_than" :
                 foreach ($wordArray as $word => $occurrences) {
                     if ($occurrences > $rule[1]) {
                         $newArray[$word] = $occurrences;
@@ -423,7 +427,7 @@ function filter_words($wordArray, $rules) {
                 $wordArray = $newArray;
                 break;
 
-            case "longer than" :
+            case "longer_than" :
                 foreach ($wordArray as $word => $occurrences) {
                     if (strlen($word) > $rule[1]) {
                         $newArray[$word] = $occurrences;
@@ -523,7 +527,7 @@ function redirect($to) {
 
 function create_rules_from_ini($ini_array) {
 
-    $rulesOptions = array("Case insensitive", "higher than", "exclude", "longer than", "max");
+    $rulesOptions = array("Case_insensitive", "higher_than", "exclude", "longer_than", "max");
 
     $rulesArray = array();
     foreach ($ini_array as $key => $value) {
@@ -534,6 +538,18 @@ function create_rules_from_ini($ini_array) {
     return $rulesArray;
 }
 
+function get_all_files($dir = 'files') {
+    $fileArray = array();
+    $handle = opendir($dir);
 
+    while (false !== ($entry = readdir($handle))) {
+        if (!in_array($entry, array(".", ".."))) {
+            $fileArray[] = $entry;
+        }
+    }
+    closedir($handle);
+    sort($fileArray);
+
+    return $fileArray;
+}
 ?>
-

@@ -1,3 +1,23 @@
+<?php
+        include "include.php";
+        $ini_array = parse_ini_file("config.ini");
+
+if(empty($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="Please input"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo $CANCEL_TEXT;
+    exit;
+} else {
+    echo "Username: ".$_SERVER['PHP_AUTH_USER']."<br>";
+    if(($_SERVER['PHP_AUTH_USER'] != $USER) || ($_SERVER['PHP_AUTH_PW'] != $PASSWORD)) {
+        echo "Login Failed!";
+    } else {
+        echo "You're logged in as " . $USER;
+    }
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,11 +27,6 @@
         <title>WordCounter</title>
     </head>
     <body>
-        <?php
-        include "include.php";
-        $ini_array = parse_ini_file("config.ini");
-        ?>
-
         <div id="header">
             <a href="index.php"> <h1>WordCounter</h1> </a>
         </div>
