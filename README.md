@@ -21,7 +21,7 @@ Since calculations would be too slow if frequencies would be calculated for ALL 
 If you want to include or exclude files from the comparison, do that here.
 
 ##Exclude words
-Since you might want to exclude certain uninteresting words from appearing in the table, you can choose among the current selection of the most frequent words and exclude them.
+Since you might want to exclude certain uninteresting words from appearing in the table, you can choose among the a large selection of the most frequent words and exclude them from appearing.
 
 ##Include words
 Initially, some words are excluded by default. If you want to include any of these or regret a previous choice, change that here.
