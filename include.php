@@ -29,7 +29,7 @@ class file_upload {
     var $the_temp_file;
     var $upload_dir;
     var $replace;
-    var $do_filename_check;
+    var $do_filename_check = "n";
     var $max_length_filename = 100;
     var $extensions;
     var $ext_string;
@@ -371,7 +371,7 @@ $multi_upload -> extensions = array(".png", ".zip", ".txt");
 $multi_upload -> message[] = $multi_upload -> extra_text(4);
 // a different standard message for multiple files
 //$multi_upload->rename_file = true; // set to "true" if you want to rename all files with a timestamp value
-$multi_upload -> do_filename_check = "y";
+$multi_upload -> do_filename_check = "n";
 // check filename ...
 
 if (isset($_POST['Submit'])) {

@@ -1,6 +1,7 @@
 <?php
 include "include.php";
 $ini_array = parse_ini_file("config.ini");
+// to give more words to exclude, we'll show more possible words
 $rules = create_rules_from_ini($ini_array);
 
 $wordsToRemove = explode(",", $ini_array["remove_from_header"]);
@@ -36,16 +37,21 @@ $wordCol = array_keys($first["frequencies"]);
 		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 		<script src="jquery-2.0.3.min.js"></script>
 		<script src="jquery.dataTables.js"></script>
-		<script src="ColReorder.js"></script>
 		<script src="TableTools.js"></script>
+		<script src="ZeroClipboard.js"></script>
+		<script src="ColReorder.js"></script>
+		
 
 		<script>
 			$(document).ready(function() {
 				$('#sortable').dataTable({
 					"bPaginate" : false,
-					"aaSorting": [[ 1, "desc" ]],
-					"sDom" : 'Rlfrtip'
-					//"sDom" : 'T<"clear">lfrtip'
+					"aaSorting" : [[1, "desc"]],
+					"sDom" : 'R<"sortable"Tf>lrtip',
+					"oTableTools" : {
+						"sSwfPath" : "copy_csv_xls_pdf.swf"
+					}
+					
 
 				});
 			});
@@ -70,11 +76,15 @@ $wordCol = array_keys($first["frequencies"]);
 				<li>
 					<a href="configuration.php">Configuration</a>
 				</li>
+				<li>
+                    <a href="https://github.com/fridde/WordCounter/blob/master/README.md">Documentation</a>
+                </li>
 			</ul>
 
 		</div>
 
 		<div id="main">
+		    <p>Word frequencies are given in % of total words.</p>
 				<table id="sortable">
 					<thead>
 						<tr>
@@ -97,13 +107,13 @@ $wordCol = array_keys($first["frequencies"]);
                             }
                             echo "</tr>";
                         }
-						?>
-					</tbody>
-				</table>
-		
-		</div>
+                    ?>
+</tbody>
+</table>
 
-		<div id="footer"></div>
+</div>
 
-	</body>
+<div id="footer"></div>
+
+</body>
 </html>

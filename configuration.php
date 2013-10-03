@@ -20,9 +20,12 @@ if(empty($_SERVER['PHP_AUTH_USER'])) {
 //--------------------------
 // Preamble
 //--------------------------
+// to give more words to exclude, we'll show more possible words
+$ini_array["max"] = $ini_array["max"] * 2;
 $rules = create_rules_from_ini($ini_array);
+$ini_array["max"] = $ini_array["max"] / 2;
 
-$wordsToRemove = explode(",", $ini_array["remove"]);
+$wordsToRemove = explode(",", $ini_array["remove_from_header"]);
 $wordsToRemove = array_map("trim", $wordsToRemove);
 if (count($wordsToRemove) == 1) {
     $wordsToRemove = array($wordsToRemove);
