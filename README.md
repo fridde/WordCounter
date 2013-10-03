@@ -1,6 +1,13 @@
 WordCounter
 ===========
 
+#What to use WordCounter for
+Of course, only your ideas limit what you want to use it for, but here are some scenarios
+* You want to see how often Shakespeare uses certain words and make a comparison between his plays. Does "thou" appear more often in his later works than in his earlier works?
+* You want to check if a certain biased word (e.g. "Obamacare") has become more frequent in a certain newspaper
+* You want to see how the language of your own scientific articles compare to other articles of the same journal
+* ...
+
 Compare word frequencies between files and view them in a table
 
 #Main table
