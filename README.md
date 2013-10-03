@@ -1,5 +1,6 @@
 WordCounter
 ===========
+Compare word frequencies between files and view them in a table
 
 #What to use WordCounter for
 Of course, only your ideas limit what you want to use it for, but here are some scenarios
@@ -8,7 +9,6 @@ Of course, only your ideas limit what you want to use it for, but here are some 
 * You want to see how the language of your own scientific articles compare to other articles of the same journal
 * ...
 
-Compare word frequencies between files and view them in a table
 
 #Main table
 ##Good things to know
