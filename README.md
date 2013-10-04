@@ -1,6 +1,6 @@
 WordCounter
 ===========
-Compare word frequencies between files and view them in a table
+Compare word frequencies between files and view them in a table. See it [in action](http://friedrich.heliohost.org/WordCounter).
 
 #What to use WordCounter for
 Of course, only your ideas limit what you want to use it for, but here are some scenarios
