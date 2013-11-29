@@ -13,6 +13,7 @@ Of course, only your ideas limit what you want to use it for, but here are some 
 #Main table
 ##Good things to know
 
+* The frequencies are calculated _after_ the "uninteresting" words have been filtered out. Therefore, the frequency of the word _cake_ in the text `I like cake` is 100% if the words "I" and "like" have been filtered out. The results should be interpreted carefully.
 * You can reorder the columns by clicking on the header and using drag-and-drop
 * Clicking on a header will change the order of the table according to that header. Click once more to change from ascending order to descending order.
 * The column names correspond to the filenames of the text files
