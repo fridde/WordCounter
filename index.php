@@ -3,6 +3,7 @@ include "include.php";
 $ini_array = parse_ini_file("config.ini");
 // to give more words to exclude, we'll show more possible words
 $rules = create_rules_from_ini($ini_array);
+$title = $ini_array["title"];
 
 $wordsToRemove = explode(",", $ini_array["remove_from_header"]);
 $wordsToRemove = array_map("trim", $wordsToRemove);
@@ -84,6 +85,7 @@ $wordCol = array_keys($first["frequencies"]);
 		</div>
 
 		<div id="main">
+		    <h1><?php echo $title ?></h1>
 		    <p>Word frequencies are given in % of total words.</p>
 				<table id="sortable">
 					<thead>
