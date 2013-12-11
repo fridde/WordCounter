@@ -1,20 +1,6 @@
 <?php
-        include "include.php";
-        $ini_array = parse_ini_file("config.ini");
-
-if(empty($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="Please input"');
-    header('HTTP/1.0 401 Unauthorized');
-    echo $CANCEL_TEXT;
-    exit;
-} else {
-    echo "Username: ".$_SERVER['PHP_AUTH_USER']."<br>";
-    if(($_SERVER['PHP_AUTH_USER'] != $USER) || ($_SERVER['PHP_AUTH_PW'] != $PASSWORD)) {
-        echo "Login Failed!";
-    } else {
-        echo "You're logged in as " . $USER;
-    }
-}
+        include "../include.php";
+        $ini_array = parse_ini_file("../config.ini");
 
  ?>
 
@@ -22,19 +8,21 @@ if(empty($_SERVER['PHP_AUTH_USER'])) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <link type="text/css" rel="stylesheet" href="../stylesheet.css"/>
         
         <title>WordCounter</title>
     </head>
     <body>
         <div id="header">
-            <a href="index.php"> <h1>WordCounter</h1> </a>
+            <a href="../index.php"> <h1>WordCounter</h1> </a>
         </div>
 
         <div id="navbar">
             <ul>
-                <li>    <a href="index.php">Home</a></li>
+                <li>    <a href="../index.php">Home</a></li>
                 <li>    <a href="upload.php">Upload</a></li>
+                <li>    <a href="configuration.php">Upload</a></li>
+                <li>    <a href="../documentation.php">Upload</a></li>
             </ul>
 
         </div>

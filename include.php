@@ -540,7 +540,7 @@ function create_rules_from_ini($ini_array) {
 
 function get_all_files($dir = 'files') {
     $fileArray = array();
-    $handle = opendir($dir);
+    $handle = opendir("../" . $dir);
 
     while (false !== ($entry = readdir($handle))) {
         if (!in_array($entry, array(".", ".."))) {

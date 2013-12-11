@@ -1,22 +1,9 @@
 <?php
 
-include "include.php";
-$ini_array = parse_ini_file("config.ini");
+include "../include.php";
+$ini_array = parse_ini_file("../config.ini");
 $otherOptions = explode(",", $ini_array["other_options"]);
 
-if(empty($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="Please input"');
-    header('HTTP/1.0 401 Unauthorized');
-    echo $CANCEL_TEXT;
-    exit;
-} else {
-    echo "Username: ".$_SERVER['PHP_AUTH_USER']."<br>";
-    if(($_SERVER['PHP_AUTH_USER'] != $USER) || ($_SERVER['PHP_AUTH_PW'] != $PASSWORD)) {
-        echo "Login Failed!";
-    } else {
-        echo "You're logged in as " . $USER;
-    }
-}
 //--------------------------
 // Preamble
 //--------------------------
@@ -32,7 +19,7 @@ if (count($wordsToRemove) == 1) {
 }
 
 $fileArray = array();
-$handle = opendir('files');
+$handle = opendir('../files');
 
 while (false !== ($entry = readdir($handle))) {
     if (!in_array($entry, array(".", ".."))) {
@@ -44,7 +31,7 @@ closedir($handle);
 sort($fileArray);
 
 foreach ($fileArray as $file) {
-    $str = file_get_contents("files/" . $file);
+    $str = file_get_contents("../files/" . $file);
     $frequencies = array_count_values(str_word_count($str, 1));
     $word_count = str_word_count($str, 0);
 
@@ -66,7 +53,7 @@ $allFiles = get_all_files();
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<link type="text/css" rel="stylesheet" href="../stylesheet.css"/>
 		<script src="jquery-2.0.3.min.js"></script>
 		<script src="jquery.dataTables.js"></script>
 		<script src="ColReorder.js"></script>
@@ -83,7 +70,7 @@ $allFiles = get_all_files();
 		<div id="navbar">
 			<ul>
 				<li>
-					<a href="index.php">Home</a>
+					<a href="../index.php">Home</a>
 				</li>
 				<li>
 					<a href="upload.php">Upload</a>
@@ -91,12 +78,15 @@ $allFiles = get_all_files();
 				<li>
 					<a href="configuration.php">Configuration</a>
 				</li>
+				                <li>
+                    <a href="../documentation.php">Configuration</a>
+                </li>
 			</ul>
 
 		</div>
 
 		<div id="main">
-			<form action="change_config.php" method="post" >
+			<form action="../change_config.php" method="post" >
 				<p>
 					<input type="submit" value="Send changes"/>
 				</p>

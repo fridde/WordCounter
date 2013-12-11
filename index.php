@@ -72,10 +72,10 @@ $wordCol = array_keys($first["frequencies"]);
 					<a href="index.php">Home</a>
 				</li>
 				<li>
-					<a href="upload.php">Upload</a>
+					<a href="admin/upload.php">Upload</a>
 				</li>
 				<li>
-					<a href="configuration.php">Configuration</a>
+					<a href="admin/configuration.php">Configuration</a>
 				</li>
 				<li>
                     <a href="https://github.com/fridde/WordCounter/blob/master/README.md">Documentation</a>
