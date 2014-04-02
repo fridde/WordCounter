@@ -13,16 +13,10 @@
         <title>WordCounter</title>
     </head>
     <body>
-        <div id="header">
-            <a href="../index.php"> <h1>WordCounter</h1> </a>
-        </div>
-
+        
         <div id="navbar">
             <ul>
                 <li>    <a href="../index.php">Home</a></li>
-                <li>    <a href="upload.php">Upload</a></li>
-                <li>    <a href="configuration.php">Upload</a></li>
-                <li>    <a href="../documentation.php">Upload</a></li>
             </ul>
 
         </div>
